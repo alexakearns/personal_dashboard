@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM, { render } from 'react-dom';
+import Dashboard from './dashboard.js';
 
 export class App extends Component {
 
+
   render() {
+    
     return (
-    <h1>Hello World</h1>
+      <div>
+        <h1>Dev Challenge</h1>
+        <button>Login</button>
+        <h3>New to the challenge? <button>Sign up</button></h3>
+      </div>
     )
   }
 }
