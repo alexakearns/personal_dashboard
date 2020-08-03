@@ -14,6 +14,9 @@ export class App extends Component {
         <div>
           <h1 id="title">Good day</h1>
         </div>
+        <div>
+          <Weather />
+        </div>
       </div>
 
     );
