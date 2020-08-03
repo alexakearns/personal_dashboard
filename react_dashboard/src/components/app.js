@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Weather from "./weather";
+import News from './news';
 import "../app.scss"
 
 
@@ -16,6 +17,9 @@ export class App extends Component {
         </div>
         <div>
           <Weather />
+        </div>
+        <div>
+          <News />
         </div>
       </div>
 
