@@ -4,6 +4,7 @@ import Weather from "./weather";
 import News from './news';
 import Sport from './sport';
 import Photos from './photos';
+import Tasks from './tasks';
 
 import "../app.scss"
 
@@ -30,6 +31,9 @@ export class App extends Component {
         </div>
         <div>
           <Photos />
+        </div>
+        <div>
+          <Tasks />
         </div>
       </div>
 
