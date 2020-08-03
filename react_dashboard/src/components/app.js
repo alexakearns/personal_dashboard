@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import ReactDOM, { render } from 'react-dom';
-import Dashboard from './dashboard.js';
+import Weather from "./weather";
+import "../app.scss"
+
+
+
 
 export class App extends Component {
-
 
   render() {
     
     return (
       <div>
-        <h1>Dev Challenge</h1>
-        <button>Login</button>
-        <h3>New to the challenge? <button>Sign up</button></h3>
+        <div>
+          <h1 id="title">Good day</h1>
+        </div>
       </div>
-    )
-  }
-}
 
+    );
+  };
+};
 
 export default App;
