@@ -5,11 +5,9 @@ import News from './news';
 import Sport from './sport';
 import Photos from './photos';
 import Tasks from './tasks';
+import Clothes from './clothes';
 
 import "../app.scss"
-
-
-
 
 export class App extends Component {
 
@@ -34,6 +32,9 @@ export class App extends Component {
         </div>
         <div>
           <Tasks />
+        </div>
+        <div>
+          <Clothes />
         </div>
       </div>
 
