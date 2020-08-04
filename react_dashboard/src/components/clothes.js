@@ -1,62 +1,69 @@
 import React, { Component } from 'react'
+import { PieChart } from "react-minimal-pie-chart";
 
 export class Clothes extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      clothes: []
     }
   }
 
   getWarmer() {
+    let thisComponent = this
     const corsProxy = "https://cors-anywhere.herokuapp.com/"
     const warmerJSON = "https://therapy-box.co.uk/hackathon/clothing-api.php?username=swapnil"
     fetch(corsProxy + warmerJSON)
     .then((response) => response.json())
     .then((data) => {
       let objects = data.payload
-      console.log(objects)
       
       let counts = {}
-let val
+      let val
 
-for(let i=0;i < objects.length; i++)
-{
-  val = objects[i].clothe;
-  if(typeof counts[val] === 'undefined')
-  {
-    counts[val] = 1;
-  }
-  else
-{
-  counts[val] += 1;
-}
-}
-console.log(counts)
+      for(let i=0, j = objects.length; i < j; i++) {
+        val = objects[i].clothe;
+        if(typeof counts[val] === 'undefined') {
+          counts[val] = 1;
+        } else{
+          counts[val] += 1;
+        }
+      }
+      console.log(counts)
+      let chartData = []
+      for (const [key, value] of Object.entries(counts)) {
+        let color = this.generateRandomColor()
+        let obj = {title: key, value: value, color: color }
+        chartData.push(obj)
+      }
+      thisComponent.setState({
+        clothes: chartData});
     })
     .catch(error => console.log(error))
   }
-
-  // countItem(objects, clothe) {
-  //   return objects.reduce(function (acc, obj) {
-  //     let key = obj[clothe]
-  //     if (!acc[key]) {
-  //       acc[key] = []
-  //     }
-  //     acc[key].push(obj)
-  //     return acc
-  //   }, {})
-  // }
 
   componentDidMount() {
     this.getWarmer()
   }
 
+  generateRandomColor() {
+      let randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+      return randomColor;
+  }
 
   render() {
+    let clothes = this.state.clothes
+
     return(
       <div>
         <h1>CLOTHES!!!</h1>
+        <div>
+
+        <PieChart
+        data ={clothes}
+        viewBoxSize
+        />
+        </div>
       </div>
     );
   };
