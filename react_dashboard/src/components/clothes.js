@@ -58,7 +58,7 @@ export class Clothes extends Component {
     return(
       <div>
         <h1 className="thumbnail-title">Clothes</h1>
-        <div>
+        <div id="pie-chart">
 
         <PieChart
         data ={clothes}
