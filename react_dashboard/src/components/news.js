@@ -24,9 +24,6 @@ export class News extends Component {
       content: topStory.content
     })
 
-    fetch(corsProxy + newsLink)
-    .then((response) => response.text())
-    .then(contents => (contents))
   }
 
   render() {
