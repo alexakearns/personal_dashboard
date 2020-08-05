@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { PieChart } from "react-minimal-pie-chart";
+// import { Route } from 'react-router-dom';
 
 export class Clothes extends Component {
   constructor(props) {
@@ -56,7 +57,7 @@ export class Clothes extends Component {
 
     return(
       <div>
-        <h1>CLOTHES!!!</h1>
+        <h1><a href="/">CLOTHES!!!</a></h1>
         <div>
 
         <PieChart
@@ -64,6 +65,7 @@ export class Clothes extends Component {
         viewBoxSize
         />
         </div>
+        {/* <Route path="/" exact component={Clothes} /> */}
       </div>
     );
   };
