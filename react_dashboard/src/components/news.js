@@ -17,8 +17,6 @@ export class News extends Component {
     const newsLink = "http://feeds.bbci.co.uk/news/rss.xml"
     const corsProxy = "https://cors-anywhere.herokuapp.com/"
     const feed = await parser.parseURL(corsProxy + newsLink);
-    console.log(feed)
-    console.log(feed.items[0]);
     const topStory = feed.items[0];
     
     this.setState({
