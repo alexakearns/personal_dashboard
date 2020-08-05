@@ -32,8 +32,8 @@ export class News extends Component {
       <div>
         <h1 className="thumbnail-title">News</h1>
         {/* <Route path="/news" component={Newspage} /> */}
-        <h2>{news.title}</h2>
-        <h2>{news.content}</h2>
+        <h2 className="thumbnail-headline">{news.title}</h2>
+        <h2 className="thumbnail-content">{news.content}</h2>
       </div>
     );
   };
