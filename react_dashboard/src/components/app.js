@@ -26,34 +26,35 @@ export class App extends Component {
           <Container>
             <Row>
               <Col>
-                <div>
+                <div className="dashboard-thumbnail">
                   <Weather />
                 </div>
               </Col>
               <Col>
-                <div>
+                <div className="dashboard-thumbnail">
+
                   <News />
                 </div>
               </Col>
               <Col>
-                <div>
+                <div className="dashboard-thumbnail">
                   <Sport />
                 </div>
               </Col>
             </Row>
             <Row>
               <Col>
-                <div>
+                <div className="dashboard-thumbnail">
                   <Photos />
                 </div>
               </Col>
               <Col>
-                <div>
+                <div className="dashboard-thumbnail">
                   <Tasks />
                 </div>
               </Col>
               <Col>
-                <div>
+                <div className="dashboard-thumbnail full-img">
                   <Clothes />
                 </div>
               </Col>
