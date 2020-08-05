@@ -64,7 +64,7 @@ export class Weather extends Component {
 
     return (
       <div>
-        <h1>WEATHER!!!</h1>
+        <h1 className="thumbnail-title">Weather</h1>
         <h2>{weather.location}</h2>
         <h2>{weather.temperature}</h2>
         <div>

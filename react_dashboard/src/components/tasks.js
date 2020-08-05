@@ -4,7 +4,7 @@ export class Tasks extends Component {
   render() {
     return(
       <div>
-        <h1>TASKS!!!</h1>
+        <h1 className="thumbnail-title">Tasks</h1>
       </div>
     );
   };

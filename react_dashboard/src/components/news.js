@@ -30,7 +30,7 @@ export class News extends Component {
     let news = this.state
     return(
       <div>
-        <h1><a href="/news">NEWS!!!</a></h1>
+        <h1 className="thumbnail-title">News</h1>
         {/* <Route path="/news" component={Newspage} /> */}
         <h2>{news.title}</h2>
         <h2>{news.content}</h2>

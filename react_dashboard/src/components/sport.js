@@ -66,7 +66,7 @@ export class Sport extends Component {
 
     return (
       <div>
-        <h1>Sport!!!</h1>
+        <h1 className="thumbnail-title">Sport</h1>
         <h2>{sportsHeadline}</h2>
         <h3>{sportsDetail}</h3>
       </div>

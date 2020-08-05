@@ -57,7 +57,7 @@ export class Clothes extends Component {
 
     return(
       <div>
-        <h1><a href="/">CLOTHES!!!</a></h1>
+        <h1 className="thumbnail-title">Clothes</h1>
         <div>
 
         <PieChart
