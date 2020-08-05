@@ -20,6 +20,29 @@
   padding: 10px;
 }
 
-.thumbnail-content {
+.thumbnail-headline {
   font-size: medium
+}
+
+.thumbnail-content {
+  font-size: large;
+}
+
+#weather-location {
+  color: black;
+  text-align: center;
+  font-size: 2vw;
+  padding-top: 20px;
+}
+
+#weather-icon {
+  text-align: center;
+  padding: 10px;
+}
+
+#weather-temp {
+  text-align: center;
+  color: black;
+  padding-top: 20px;
+
 }

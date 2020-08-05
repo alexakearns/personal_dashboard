@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-// import Container from "react-bootstrap/Container";
-// import cloud from 'assets'
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import Cloud from "./Clouds_icon.png";
 import Sun from "./Sun_icon.png";
 import Rain from "./Rain_icon.png";
@@ -65,13 +67,29 @@ export class Weather extends Component {
     return (
       <div>
         <h1 className="thumbnail-title">Weather</h1>
-        <h2>{weather.location}</h2>
-        <h2>{weather.temperature}</h2>
-        <div>
-          <section>
+        <Container>
+        <Row>
+          <Col>
+
+        <div id="weather-icon">
+          
             <img src={icon} alt="cloud" />
-          </section>
+
         </div>
+          </Col>
+          <Col>
+        <h2 id="weather-temp">{weather.temperature} degrees</h2>
+
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+
+        <h2 id="weather-location">{weather.location}</h2>
+          </Col>
+        </Row>
+          
+        </Container>
       </div>
     );
   }
