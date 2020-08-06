@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-
 export class Signup extends Component {
   constructor(props)
 
@@ -20,5 +19,3 @@ export class Signup extends Component {
     )
   }
 }
-
-export default Signup;
