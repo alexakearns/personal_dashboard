@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const cors = require('cors');
+const cors = require("cors");
 const bcrypt = require("bcrypt");
 const port = process.env.PORT || 4000;
 const { pool } = require("./dbConfig");
@@ -35,7 +35,6 @@ app.get("/users", (req, res) => {
     res.status(200).json(results.rows);
   });
 });
-
 
 app.listen(port, () => {
   console.log(`Server loaded on port ${port}`);

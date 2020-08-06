@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Axios from 'axios';
+import React, { Component } from "react";
+import Axios from "axios";
 
-const URL = 'http://localhost:4000'
+const URL = "http://localhost:4000";
 
 export class Signup extends Component {
   constructor(props) {
@@ -10,10 +10,9 @@ export class Signup extends Component {
       username: "",
       email: "",
       password: "",
-      confirmPassword: ""
-    }
+      confirmPassword: "",
+    };
   }
-
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -25,48 +24,47 @@ export class Signup extends Component {
       Axios.post(`${URL}/users/signup`, {
         username: data.username,
         email: data.email,
-        password: data.password
+        password: data.password,
       })
-      .then((res) => {
-        console.log(res)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
-  }
+  };
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
-
+      [event.target.name]: event.target.value,
+    });
+  };
 
   render() {
-    return(
+    return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Username:
-          </label>
-            <input type="text" name="username" onChange={this.handleChange} ></input>
-          <label htmlFor="email">
-            Email:
-          </label>
-            <input type="email" name="email" onChange={this.handleChange} />
-          <label htmlFor="password">
-            Password:
-          </label>
-            <input type="password" name="password" onChange={this.handleChange} />
-            <label>
-              Confirm Password:
-            </label>
-            <input type ="password" name="confirmPassword" onChange={this.handleChange} />
+          <label>Username:</label>
+          <input
+            type="text"
+            name="username"
+            onChange={this.handleChange}
+          ></input>
+          <label htmlFor="email">Email:</label>
+          <input type="email" name="email" onChange={this.handleChange} />
+          <label htmlFor="password">Password:</label>
+          <input type="password" name="password" onChange={this.handleChange} />
+          <label>Confirm Password:</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            onChange={this.handleChange}
+          />
           <button type="submit">Register</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

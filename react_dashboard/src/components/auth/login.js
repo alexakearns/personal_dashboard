@@ -1,57 +1,63 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from "react";
+import Axios from "axios";
+// import './auth.scss'
 
-const URL = 'http://localhost:4000'
-
-import './auth.scss'
+const URL = "http://localhost:4000";
 
 export class Login extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      // location: 
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
+  }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    const data = this.state;
+    if (data.password !== data.confirmPassword) {
+      alert("Passwords do not match");
+    } else {
+      Axios.post(`${URL}/users/signup`, {
+        username: data.username,
+        password: data.password,
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
-  }
-
-  handleSubmit() {
-
-  }
-
-  submitLogin() {
-    axios.post(`${URL}/users/`)
-  }
-
-
-  // componentWillUnmount()
-  
-    render() {
-      return(
-        <div>
-        <div id="home">
-          <h1 id="title">Dev Challenge</h1>
-        </div>
-
-          <form onSubmit={this.handleSubmit}>
-          <label>
-            Username:
-            <input type="text" name="username"/>
-          </label>
-          <label>
-            Username:
-            <input type="text" name="username"/>
-          </label>
-            <input type="image" src="../../assets/Login_button.png" alt="login" class="yellow-button"/>
-          </form>
-
-        <div>
-        <h3>New to the challenge? <button>Sign up</button></h3>
-      </div>
-      </div>
-    );
   };
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>Username:</label>
+          <input
+            type="text"
+            name="username"
+            onChange={this.handleChange}
+          ></input>
+          <label htmlFor="password">Password:</label>
+          <input type="password" name="password" onChange={this.handleChange} />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    );
+  }
 }
 
 export default Login;
-

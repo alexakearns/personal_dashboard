@@ -1,31 +1,29 @@
-import React, { Component } from 'react'
-import Login from './auth/login'
+import React, { Component } from "react";
+import Login from "./auth/login";
+// import Signup from './auth/signUp'
 
-import '../app.scss'
+import "../app.scss";
 
 export class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      loggedInStatus: "Not Logged In"
+      loggedInStatus: "Not Logged In",
     };
   }
 
-  checkLoggedInStatus() {
+  checkLoggedInStatus() {}
 
-  }
-
-  componentDidMount() { 
+  componentDidMount() {
     this.checkLoggedInStatus();
   }
-  
-  
+
   render() {
-    return(
+    return (
       <div>
         <Login />
       </div>
-    )
+    );
   }
 }
 
