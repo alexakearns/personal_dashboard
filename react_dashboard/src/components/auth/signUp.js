@@ -63,7 +63,7 @@ export class Signup extends Component {
               Confirm Password:
             </label>
             <input type ="password" name="confirmPassword" onChange={this.handleChange} />
-          <button type="submit">Sign Up</button>
+          <button type="submit">Register</button>
         </form>
       </div>
     )
