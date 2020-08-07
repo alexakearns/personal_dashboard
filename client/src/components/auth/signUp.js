@@ -4,7 +4,7 @@ import Axios from "axios";
 import Login from "./login";
 import "./auth.scss";
 
-const URL = "http://localhost:4000";
+const URL = "https://tb-personal-dash.herokuapp.com/" || "http://localhost:4000";
 
 export class Signup extends Component {
   constructor(props) {
@@ -43,6 +43,10 @@ export class Signup extends Component {
       [event.target.name]: event.target.value,
     });
   };
+
+  componentDidMount(){
+     base = 
+  }
 
   render() {
     return (
