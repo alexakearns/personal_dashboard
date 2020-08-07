@@ -100,12 +100,12 @@ export class Signup extends Component {
             <input type="submit" />
           </div>
           <div>
-            <Link to="./">
+            <Link to="./login">
               <h3>To Login</h3>
             </Link>
           </div>
         </form>
-        <Route path="/" exact component={Login} />
+        <Route path="/login" exact component={Login} />
       </div>
     );
   }

@@ -42,11 +42,13 @@ export class Login extends Component {
     });
   };
 
+
   render() {
     const { redirect } = this.state
     if (redirect) {
       return <Redirect to='/dashboard'/>
     }
+
     return (
       <div>
         <div>
