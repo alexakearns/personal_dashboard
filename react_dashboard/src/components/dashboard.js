@@ -14,6 +14,7 @@ import "../app.scss";
 import "./dash.scss";
 
 export class Dashboard extends Component {
+
   render() {
     return (
       <div>
@@ -66,4 +67,4 @@ export class Dashboard extends Component {
   }
 }
 
-export default App;
+export default Dashboard;
