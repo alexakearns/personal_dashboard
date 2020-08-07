@@ -97,12 +97,15 @@ export class Signup extends Component {
             </div>
           </div>
           <div className="align-button-no-image">
-            <Link to="./login">
-              <input type="submit"/>
+            <input type="submit" />
+          </div>
+          <div>
+            <Link to="./">
+              <h3>To Login</h3>
             </Link>
           </div>
         </form>
-        <Route path="/login" component={Login} />
+        <Route path="/" exact component={Login} />
       </div>
     );
   }
