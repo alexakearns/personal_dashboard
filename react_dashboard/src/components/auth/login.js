@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Axios from "axios";
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { BrowserRouter as Route, Link, Redirect } from "react-router-dom";
 import Signup from "./signUp";
 import Dashboard from "../dashboard";
 import "./auth.scss";
@@ -13,6 +13,7 @@ export class Login extends Component {
     this.state = {
       username: "",
       password: "",
+      redirect: false,
     };
   }
 
@@ -26,6 +27,9 @@ export class Login extends Component {
     })
       .then((res) => {
         console.log(res);
+        if (res.data.message === "Success") {
+          this.setState({ redirect: true})
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -39,6 +43,10 @@ export class Login extends Component {
   };
 
   render() {
+    const { redirect } = this.state
+    if (redirect) {
+      return <Redirect to='/dashboard'/>
+    }
     return (
       <div>
         <div>

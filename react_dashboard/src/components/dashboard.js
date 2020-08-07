@@ -14,13 +14,16 @@ import "../app.scss";
 import "./dash.scss";
 
 export class Dashboard extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   render() {
     return (
       <div>
       <Container id="greeting">
         <div>
-          <h1 id="title">Good day</h1>
+          <h1 id="title">Good day {this.props.username}</h1>
         </div>
       </Container>
         <div>
