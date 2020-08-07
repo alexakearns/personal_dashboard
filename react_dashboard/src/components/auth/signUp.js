@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 import Axios from "axios";
+import Login from "./login";
+import "./auth.scss";
 
 const URL = "http://localhost:4000";
 
@@ -44,25 +47,62 @@ export class Signup extends Component {
   render() {
     return (
       <div>
+        <h1 className="title">Dev Challenge</h1>
         <form onSubmit={this.handleSubmit}>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            onChange={this.handleChange}
-          ></input>
-          <label htmlFor="email">Email:</label>
-          <input type="email" name="email" onChange={this.handleChange} />
-          <label htmlFor="password">Password:</label>
-          <input type="password" name="password" onChange={this.handleChange} />
-          <label>Confirm Password:</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            onChange={this.handleChange}
-          />
-          <button type="submit">Register</button>
+          <div className="row justify-content-center row-padding">
+            <div className="col-4">
+              <input
+                className="text-area"
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={this.handleChange}
+              ></input>
+            </div>
+            <div className="col-4">
+              <input
+                className="text-area"
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="row justify-content-center row-padding">
+            <div className="col-4">
+              <input
+                className="text-area"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="col-4">
+              <input
+                className="text-area"
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          <div className="container layout-image">
+            <div className="add-picture">
+              <h5 id="picture-text">
+                Add Picture <br></br>(Not currently available)
+              </h5>
+            </div>
+          </div>
+          <div id="align-button-no-image">
+            <Link to="./login">
+              <input type="submit"/>
+            </Link>
+          </div>
         </form>
+        <Route path="/login" component={Login} />
       </div>
     );
   }
