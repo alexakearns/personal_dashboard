@@ -96,7 +96,7 @@ export class Signup extends Component {
               </h5>
             </div>
           </div>
-          <div id="align-button-no-image">
+          <div className="align-button-no-image">
             <Link to="./login">
               <input type="submit"/>
             </Link>

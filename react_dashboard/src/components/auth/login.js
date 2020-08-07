@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Axios from "axios";
-// import './auth.scss'
+import { BrowserRouter as Route, Link } from "react-router-dom";
+import Signup from "./signUp";
+import Dashboard from "../dashboard";
+import "./auth.scss";
 
 const URL = "http://localhost:4000";
 
@@ -9,9 +12,7 @@ export class Login extends Component {
     super(props);
     this.state = {
       username: "",
-      email: "",
       password: "",
-      confirmPassword: "",
     };
   }
 
@@ -19,20 +20,16 @@ export class Login extends Component {
     event.preventDefault();
 
     const data = this.state;
-    if (data.password !== data.confirmPassword) {
-      alert("Passwords do not match");
-    } else {
-      Axios.post(`${URL}/users/signup`, {
-        username: data.username,
-        password: data.password,
+    Axios.post(`${URL}/users/login`, {
+      username: data.username,
+      password: data.password,
+    })
+      .then((res) => {
+        console.log(res);
       })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   handleChange = (event) => {
@@ -44,17 +41,52 @@ export class Login extends Component {
   render() {
     return (
       <div>
+        <div>
+          <h1 className="title">Dev Challenge</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            onChange={this.handleChange}
-          ></input>
-          <label htmlFor="password">Password:</label>
-          <input type="password" name="password" onChange={this.handleChange} />
-          <button type="submit">Login</button>
+
+
+
+          <div className="row justify-content-center">
+            <div className="col-4 ml-1">
+              <input
+                className="text-area"
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={this.handleChange}
+              ></input>
+            </div>
+            <div className="col-4">
+              <input
+                className="text-area"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={this.handleChange}
+              />
+            </div>
+          </div>
+            <div id=""className="align-button-no-image">
+
+              <input type="submit" value="Login"/>
+            </div>
         </form>
+        <div>
+        <div className="container">
+          <div className="row">
+
+          <h3>New to the Challenge? </h3>
+          <Link to="/signup">
+            <h3 className="yellow-text"> Sign up</h3>
+          </Link>
+          </div>
+        </div>
+          <Link to="/dashboard">Dashboard</Link>
+        </div>
+        <Route path="/signup" component={Signup} />
+        <Route path="/dashboard" component={Dashboard} />
       </div>
     );
   }
