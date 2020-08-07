@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 const flash = require("express-flash");
 const passport = require("passport");
+const path = require("path");
 const port = process.env.PORT || 4000;
 const { pool } = require("./dbConfig");
 
@@ -12,7 +13,7 @@ const initializePassport = require("./passport.Config");
 const CLIENT_HOMEPAGE_URL = "http://localhost:3000/signup";
 
 initializePassport(passport);
-
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -77,6 +78,10 @@ app.get("/users", (req, res) => {
     }
     res.status(200).json(results.rows);
   });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(port, () => {
