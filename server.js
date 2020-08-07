@@ -7,6 +7,8 @@ const flash = require("express-flash");
 const passport = require("passport");
 const path = require("path");
 const port = process.env.PORT || 4000;
+const secret = process.env.SECRET || "localdev";
+require("dotenv").config();
 const { pool } = require("./dbConfig");
 
 const initializePassport = require("./passport.Config");
