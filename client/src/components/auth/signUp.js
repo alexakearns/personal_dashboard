@@ -44,10 +44,6 @@ export class Signup extends Component {
     });
   };
 
-  componentDidMount(){
-     base = 
-  }
-
   render() {
     return (
       <div>
