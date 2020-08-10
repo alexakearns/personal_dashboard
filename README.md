@@ -2,6 +2,10 @@
 
 ## React app
 
+
+[Link to deployed app](https://tb-personal-dash.herokuapp.com/login)
+
+
 Install dependencies
 ```
 yarn
