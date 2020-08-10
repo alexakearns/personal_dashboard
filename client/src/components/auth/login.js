@@ -21,7 +21,7 @@ export class Login extends Component {
     event.preventDefault();
 
     const data = this.state;
-    Axios.post(`${URL}/users/login`, {
+    Axios.post(`/api/users/login`, {
       username: data.username,
       password: data.password,
     })
