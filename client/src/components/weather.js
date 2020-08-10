@@ -29,7 +29,7 @@ export class Weather extends Component {
       lat = position.coords.latitude;
       lon = position.coords.longitude;
 
-      const weatherAPI = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=da6424f2d1b1c96b8ad2199aa0ac26e5`;
+      const weatherAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=da6424f2d1b1c96b8ad2199aa0ac26e5`;
       fetch(weatherAPI)
         .then((response) => response.json())
         .then((data) => {
