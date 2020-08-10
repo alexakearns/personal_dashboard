@@ -24,7 +24,7 @@ export class Signup extends Component {
     if (data.password !== data.confirmPassword) {
       alert("Passwords do not match");
     } else {
-      Axios.post(`${URL}/users/signup`, {
+      Axios.post(`/api/users/signup`, {
         username: data.username,
         email: data.email,
         password: data.password,
