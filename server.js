@@ -30,7 +30,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.post("/users/signup", async (req, res) => {
+app.post("/±api/users/signup", async (req, res) => {
   let { username, email, password } = req.body;
 
   const hashedPassword = await bcrypt.hash(password, 10);
