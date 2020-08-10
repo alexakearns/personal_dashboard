@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Parser from 'rss-parser';
-// import { Route } from 'react-router-dom'
-// import Newspage from './newsPage'
+// import { BrowserRouter as Route, Link } from 'react-router-dom';
+// import Newspage from './newsPage';
 
 export class News extends Component {
   constructor(props) {
@@ -30,8 +30,9 @@ export class News extends Component {
     let news = this.state
     return(
       <div>
+
         <h1 className="thumbnail-title">News</h1>
-        {/* <Route path="/news" component={Newspage} /> */}
+        
         <h2 className="thumbnail-headline">{news.title}</h2>
         <h2 className="thumbnail-content">{news.content}</h2>
       </div>

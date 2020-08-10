@@ -21,7 +21,7 @@ export class Login extends Component {
     event.preventDefault();
 
     const data = this.state;
-    Axios.post(`${URL}/users/login`, {
+    Axios.post(`/api/users/login`, {
       username: data.username,
       password: data.password,
     })
@@ -84,14 +84,13 @@ export class Login extends Component {
             </div>
         </form>
         <div>
-        <div className="container">
-          <div className="row">
+        <div className="container" id="sign-up-link">
 
-          <h3>New to the Challenge? </h3>
+          <h3>New to the Challenge? 
           <Link to="/signup">
             <h3 className="yellow-text"> Sign up</h3>
           </Link>
-          </div>
+          </h3>
         </div>
           <Link to="/dashboard">Dashboard</Link>
         </div>

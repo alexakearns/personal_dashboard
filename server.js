@@ -5,14 +5,16 @@ const bcrypt = require("bcrypt");
 const session = require("express-session");
 const flash = require("express-flash");
 const passport = require("passport");
+const path = require("path");
 const port = process.env.PORT || 4000;
+const secret = process.env.SECRET || "localdev";
+require("dotenv").config();
 const { pool } = require("./dbConfig");
 
 const initializePassport = require("./passport.Config");
-const CLIENT_HOMEPAGE_URL = "http://localhost:3000/signup";
 
 initializePassport(passport);
-
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
@@ -27,7 +29,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-app.post("/users/signup", async (req, res) => {
+app.post("/api/users/signup", async (req, res) => {
   let { username, email, password } = req.body;
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -59,7 +61,7 @@ app.post("/users/signup", async (req, res) => {
 });
 
 app.post(
-  "/users/login",
+  "/api/users/login",
   passport.authenticate("local", {
     successRedirect: "/successjson",
     failureRedirect: false,
@@ -70,13 +72,17 @@ app.get('/successjson', function(req, res) {
   res.json({message: "Success", username: req.user})
 })
 
-app.get("/users", (req, res) => {
+app.get("/api/users", (req, res) => {
   pool.query(`SELECT * FROM users`, (error, results) => {
     if (error) {
       console.log(error);
     }
     res.status(200).json(results.rows);
   });
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(port, () => {
