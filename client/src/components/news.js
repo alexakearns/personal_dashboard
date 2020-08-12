@@ -36,9 +36,11 @@ export class News extends Component {
       console.log(res);
       const topStory = res.items[0]
       console.log(topStory)
-
     })
-  }
+    .catch((error) =>  {
+      console.log(error)
+    })
+  } 
   
 
   componentDidMount() {
