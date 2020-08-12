@@ -29,7 +29,9 @@ export class Signup extends Component {
         username: data.username,
         email: data.email,
         password: data.password,
-      })
+      },
+      { withCredentials: true }
+      )
         .then((res) => {
           console.log(res);
           if (res.data > 0) {
@@ -39,6 +41,7 @@ export class Signup extends Component {
         .catch((error) => {
           console.log(error);
         });
+
     }
   };
 
