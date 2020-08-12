@@ -31,7 +31,7 @@ export class News extends Component {
     const newsLink = "http://feeds.bbci.co.uk/news/rss.xml"
     const corsProxy = "https://cors-anywhere.herokuapp.com/"
     
-    Axios.get(corsProxy + newsLink) 
+    Axios.get(newsLink) 
     .then((res) => {
       console.log(res);
       const topStory = res.items[0]
