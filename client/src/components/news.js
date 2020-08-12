@@ -13,38 +13,18 @@ export class News extends Component {
     }
   }
 
-  // async componentDidMount() {
-  //   let parser = new Parser();
-  //   const newsLink = "http://feeds.bbci.co.uk/news/rss.xml"
-  //   const corsProxy = "https://cors-anywhere.herokuapp.com/"
-  //   const feed = await parser.parseURL(corsProxy + newsLink);
-  //   const topStory = feed.items[0];
-    
-  //   this.setState({
-  //     title: topStory.title,
-  //     content: topStory.content
-  //   })
-    
-  // }
-  
-  getNews() {
+  async componentDidMount() {
+    let parser = new Parser();
     const newsLink = "http://feeds.bbci.co.uk/news/rss.xml"
     const corsProxy = "https://cors-anywhere.herokuapp.com/"
+    const feed = await parser.parseURL(corsProxy + newsLink);
+    const topStory = feed.items[0];
     
-    Axios.get(newsLink) 
-    .then((res) => {
-      console.log(res);
-      const topStory = res.items[0]
-      console.log(topStory)
+    this.setState({
+      title: topStory.title,
+      content: topStory.content
     })
-    .catch((error) =>  {
-      console.log(error)
-    })
-  } 
-  
 
-  componentDidMount() {
-    this.getNews();
   }
 
   render() {
