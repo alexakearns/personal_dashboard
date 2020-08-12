@@ -29,6 +29,8 @@ export class Login extends Component {
         console.log(res);
         if (res.data.message === "Success") {
           this.setState({ redirect: true})
+        } else {
+          (res.data.message === "Failure")
         }
       })
       .catch((error) => {
