@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Weather from "./weather";
 import News from "./news";
@@ -28,44 +28,46 @@ export class Dashboard extends Component {
       </Container>
         <div>
           <Container>
-            <Row>
-              <Col>
-                <div className="dashboard-thumbnail">
-                  <Weather />
-                </div>
-              </Col>
-              <Col>
-                <div className="dashboard-thumbnail">
-                  <Link to='/newspage'>
-                  <News />
-                  </Link>
-                </div>
-              </Col>
-              <Col>
-                <div className="dashboard-thumbnail">
-                  <Sport />
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <div className="dashboard-thumbnail">
-                  <Photos />
-                </div>
-              </Col>
-              <Col>
-                <div className="dashboard-thumbnail">
-                  <Tasks />
-                </div>
-              </Col>
-              <Col>
-                <div className="dashboard-thumbnail full-img">
-                  <Clothes />
-                </div>
-              </Col>
-            </Row>
+            <Router>
+              <Row>
+                <Col>
+                  <div className="dashboard-thumbnail">
+                    <Weather />
+                  </div>
+                </Col>
+                <Col>
+                  <div className="dashboard-thumbnail">
+                    <Link to='/newspage'>
+                    <News />
+                    </Link>
+                  </div>
+                </Col>
+                <Col>
+                  <div className="dashboard-thumbnail">
+                    <Sport />
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <div className="dashboard-thumbnail">
+                    <Photos />
+                  </div>
+                </Col>
+                <Col>
+                  <div className="dashboard-thumbnail">
+                    <Tasks />
+                  </div>
+                </Col>
+                <Col>
+                  <div className="dashboard-thumbnail full-img">
+                    <Clothes />
+                  </div>
+                </Col>
+              </Row>
+              <Route path="/newspage"  exact component={Newspage} />
+            </Router>
           </Container>
-          <Route path="/newspage" component={Newspage} />
         </div>
       </div>
     );
