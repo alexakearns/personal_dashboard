@@ -87,7 +87,7 @@ export class Login extends Component {
         </form>
         <div>
         <div className="container" id="sign-up-link">
-        <h4>{errMsg}</h4>
+        {/* <h4>{errMsg}</h4> */}
           <h3>New to the Challenge? 
           <Link to="/signup">
             <h3 className="yellow-text"> Sign up</h3>
