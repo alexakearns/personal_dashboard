@@ -14,6 +14,7 @@ export class Login extends Component {
       username: "",
       password: "",
       redirect: false,
+      errMsg: ""
     };
   }
 
@@ -32,7 +33,7 @@ export class Login extends Component {
         }
       })
       .catch((error) => {
-        console.log(error);
+        this.setState({ errMsg: error });
       });
   };
 
@@ -44,10 +45,11 @@ export class Login extends Component {
 
 
   render() {
-    const { redirect } = this.state
+    const { redirect } = this.state;
     if (redirect) {
       return <Redirect to='/dashboard'/>
     }
+    const errMsg = this.state.errMsg;
 
     return (
       <div>
@@ -85,7 +87,7 @@ export class Login extends Component {
         </form>
         <div>
         <div className="container" id="sign-up-link">
-
+        {/* <h4>{errMsg}</h4> */}
           <h3>New to the Challenge? 
           <Link to="/signup">
             <h3 className="yellow-text"> Sign up</h3>

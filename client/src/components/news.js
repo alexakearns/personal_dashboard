@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Parser from 'rss-parser';
+import Axios from 'axios';
 // import { BrowserRouter as Route, Link } from 'react-router-dom';
 // import Newspage from './newsPage';
 

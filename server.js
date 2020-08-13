@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(
   session({
+    cookieName: "session",
     secret: "secret",
     resave: false,
     saveUninitialized: false,

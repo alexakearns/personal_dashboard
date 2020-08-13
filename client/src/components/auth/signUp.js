@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Route, Link } from "react-router-dom";
+import { BrowserRouter as Route, Redirect, Link } from "react-router-dom";
 import Axios from "axios";
 import Login from "./login";
 import "./auth.scss";
@@ -14,6 +14,7 @@ export class Signup extends Component {
       email: "",
       password: "",
       confirmPassword: "",
+      redirectLogin: false
     };
   }
 
@@ -28,13 +29,19 @@ export class Signup extends Component {
         username: data.username,
         email: data.email,
         password: data.password,
-      })
+      },
+      // { withCredentials: true }
+      )
         .then((res) => {
           console.log(res);
+          if (res.data > 0) {
+            this.setState({ redirect: true })
+          }
         })
         .catch((error) => {
           console.log(error);
         });
+
     }
   };
 
@@ -45,6 +52,11 @@ export class Signup extends Component {
   };
 
   render() {
+    const { redirect } = this.state
+    if (redirect) {
+      return <Redirect to='/login' />
+    }
+
     return (
       <div>
         <h1 className="title">Dev Challenge</h1>
