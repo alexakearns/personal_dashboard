@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { BrowserRouter as Route, Link } from "react-router-dom";
 
 import Weather from "./weather";
 import News from "./news";
@@ -9,6 +10,7 @@ import Sport from "./sport";
 import Photos from "./photos";
 import Tasks from "./tasks";
 import Clothes from "./clothes";
+import Newspage from "./newsPage";
 
 import "../app.scss";
 import "./dash.scss";
@@ -34,8 +36,9 @@ export class Dashboard extends Component {
               </Col>
               <Col>
                 <div className="dashboard-thumbnail">
-
+                  <Link to='/newspage'>
                   <News />
+                  </Link>
                 </div>
               </Col>
               <Col>
@@ -62,6 +65,7 @@ export class Dashboard extends Component {
               </Col>
             </Row>
           </Container>
+          <Route path="/newspage" component={Newspage} />
         </div>
       </div>
     );
