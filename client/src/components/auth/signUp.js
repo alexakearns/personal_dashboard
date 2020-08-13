@@ -113,7 +113,7 @@ export class Signup extends Component {
           </div>
           <div>
             <Link to="./login">
-              <h3>To Login</h3>
+              <h3 id="temp-text">To Login</h3>
             </Link>
           </div>
         </form>
